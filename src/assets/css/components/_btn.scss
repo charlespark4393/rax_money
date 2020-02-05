@@ -1,0 +1,18 @@
+.btn {
+    padding: 8px 1.25rem;
+    border-radius: 5px;
+    background-color: $color-primary;
+    font-size: 1.167rem;
+    font-weight: 600;
+    color: $color-white;
+    transition: all .25s;
+    cursor: pointer;
+    @include linkStates($color-white, none);
+    @include atMedium {
+        padding: 8px .9375rem;
+    }
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
+}

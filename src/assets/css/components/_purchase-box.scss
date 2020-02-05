@@ -1,0 +1,59 @@
+.purchase-box {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: .833rem;
+    box-shadow: 0 4px 28px 14px rgba(230,230,230,0.50);
+    overflow: hidden;
+    cursor: pointer;
+    @include atMedium {
+        border-radius: 1.25rem;
+    }
+    
+    &__copy {
+        padding: .667rem 1rem;
+        margin-top: 10.4167rem;
+        position: relative;
+        @include atMedium {
+            padding: .5rem .75rem;
+            margin-top: 15.8125rem;
+        }
+
+        &-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        h2,
+        p {
+            transition: all .25s;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color-white, .75);
+            transition: all .25s;
+        }
+    }
+
+    &:hover {
+        .purchase-box {
+            &__copy {
+                h2,
+                p {
+                    color: $color-white;
+                }
+
+                &:before {
+                    background-color: $color-primary;
+                }
+            }
+        }
+    }
+}

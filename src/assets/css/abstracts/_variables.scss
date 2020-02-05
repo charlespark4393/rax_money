@@ -1,0 +1,41 @@
+// Colors
+$color-primary: #9013FE;
+$color-primary-lgt: #FAEFFF;
+
+$color-white: #ffffff;
+
+$color-black: #1B1B1B;
+$color-black-2: #272727;
+
+$color-gray: #FBF9FC;
+$color-gray-drk: #6A6A6A;
+$color-gray-alt: #EEEEEE;
+$color-gray-alt-2: #DEDEDE;
+
+
+// Typography
+@font-face {
+    src: url("../fonts/AvenirNext-Regular.ttf");
+    font-family: "AvenirNext";
+    font-weight: 400;
+}
+
+@font-face {
+    src: url("../fonts/AvenirNext-Medium.ttf");
+    font-family: "AvenirNext";
+    font-weight: 500;
+}
+
+@font-face {
+    src: url("../fonts/AvenirNext-DemiBold.ttf");
+    font-family: "AvenirNext";
+    font-weight: 600;
+}
+
+@font-face {
+    src: url("../fonts/AvenirNext-Bold.ttf");
+    font-family: "AvenirNext";
+    font-weight: 700;
+}
+
+$font-main: "AvenirNext", "Helvetica", "Arial", sans-serif;

@@ -1,0 +1,385 @@
+<div class="loader" *ngIf="!!showLoader">
+  <img src="assets/images/rax-logo.svg" alt="RAX logo" class="loader__logo">
+  <!-- <a href="whatsapp://send?text=http://niralar.com" data-action="share/whatsapp/share">Share via Whatsapp</a> -->
+</div>
+
+<div class="popup" data-popup-target="purchase">
+  <div class="popup__container container">
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="popup__inner">
+          <div class="popup__header">
+            <button class="popup__close"><img data-popup-trigger="purchase" src="/assets/images/i-back.svg"
+                alt="Go back"></button>
+            <h2 class="p p--lg u-weight-dmb">{{modelDetail?.userId?.name}}’s Purchase</h2>
+          </div>
+          <div class="popup__main">
+            <div class="post">
+              <div class="post__header">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="post__profile">
+                        <div class="post__profile-pic"
+                          [ngStyle]="{'background-image':'url('+modelDetail?.userId?.imageUrl?.original+')'}">&nbsp;
+                        </div>
+                        <div class="post__profile-info">
+                          <p class="p--lg u-weight-dmb">{{modelDetail?.userId?.name}}</p>
+                          <p class="p--md u-color-gray-alt-5 u-weight-reg">{{modelDetail?.createdOn | timeAgo }} -
+                            {{modelDetail?.plaidlocation}}</p>
+                        </div>
+                      </div>
+                      <p>{{modelDetail?.tags}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="post__media">
+                <div class="post__img" [ngStyle]="{'background-image':'url('+modelDetail?.backgroundImage+')'}" *ngIf="!!modelDetail?.backgroundImage">&nbsp;
+                </div>
+
+                <div class="post__img" [ngStyle]="{'background-image':'url('+modelDetail?.isGif+')'}" *ngIf="!modelDetail?.backgroundImage">&nbsp;
+                  </div>
+
+                  
+
+              </div>
+              <div class="post__main">
+                <div class="post__product order-md-3">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12">
+                        <h3>{{modelDetail?.pliadName}}</h3>
+                        <p class="p--lg d-flex align-items-center justify-content-start">
+                          ${{modelDetail?.plaidAmount | number}} <img src="/assets/images/i-check.svg" alt="Check"
+                          *ngIf="modelDetail?.verified"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="post__reactions order-md-2">
+                  <div class="container">
+
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="post__reactions-options">
+                          <input type="radio" name="reaction" id="love">
+                          <label for="love">😍</label>
+
+                          <input type="radio" name="reaction" id="money">
+                          <label for="money">🤑</label>
+
+                          <input type="radio" name="reaction" id="wow">
+                          <label for="wow">😲</label>
+                      </div>
+                        <p class="p--md u-weight-dmb">{{modelDetail?.likeCount}} Reactions</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="post__comments order-md-1">
+                  <ul class="post__comments-list">
+                    <li class="post__comments-item" *ngFor="let comment of modelDetail?.comment">
+                      <div class="post__comments-item-pic"
+                        [ngStyle]="{'background-image':'url('+comment?.userId?.imageUrl?.original+')'}">
+                        &nbsp;</div>
+                      <div class="post__comments-item-copy">
+                        <div class="d-flex align-items-center">
+                          <p class="p--md u-weight-dmb mr-2">{{comment?.userId?.name}}</p>
+                          <!-- <p class="p--sm u-color-gray">1M</p> -->
+                        </div>
+                        <p>{{comment?.text}}</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <p class="header__logo">RAX<span
+            class="u-weight-bld">.money</span><span>/{{data?.userDetails[0]?.userName}}</span></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="cta">
+  <div class="cta__inner">
+    <div class="cta__copy">
+      <img src="assets/images/rax-logo.svg" alt="Rax logo" class="cta__logo">
+      <p class="p--lg">See what <strong class="u-weight-dmb">{{data?.userDetails[0]?.name}}</strong> and<br>others
+        are buying with RAX!</p>
+    </div>
+    <a href="https://apps.apple.com/us/app/jasper/id1440001010" target="_blank" class="btn cta__btn">Get the App</a>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="profile">
+          <div class="profile__header">
+            <div class="profile__info">
+              <h1 >{{data?.userDetails[0]?.name}}</h1>
+              <p class="p--lg u-color-black d-md-block">{{data?.userDetails[0]?.bio}}</p>
+              <div class="profile__stats">
+                <div class="profile__stats-item">
+                  <h5>{{data?.transactions[0]?.count}} <span>🎁</span></h5>
+                </div>
+                <div class="profile__stats-item">
+                  <h5>${{data?.transactions[0]?.totalAmount}} <span>💰</span></h5>
+                </div>
+              </div>
+              <div class="profile__social">
+                <div class="profile__social-item">
+                  <h2><strong class="u-weight-bld">{{data?.userDetails[0]?.friends}} </strong> <span
+                      class="u-color-gray u-weight-med">Followers</span></h2>
+                </div>
+                <div class="profile__social-item">
+                  <h2><strong class="u-weight-bld">{{data?.userDetails[0]?.searchIndex?.length}} </strong> <span
+                      class="u-color-gray u-weight-med">Following</span></h2>
+                </div>
+              </div>
+            </div>
+            <div class="profile__img" [ngStyle]="{'background-image':'url('+data?.userDetails[0]?.imageUrl?.original+')'}">&nbsp;</div>
+          </div>
+          <div class="profile__posts">
+            <div class="profile__tabs">
+              <div class="profile__tabs-triggers">
+                <div class="profile__tabs-triggers-item" [class.is-active]="!tags"
+                  (click)="!tags ? '' : tags = false;getData()">Purchases</div>
+                <div class="profile__tabs-triggers-item" [class.is-active]="!!tags"
+                  (click)="!!tags ? '' : tags = true;getData()">Tagged</div>
+              </div>
+              <div class="profile__tabs-content">
+                <div class="profile__tabs-content-item">
+                  <div class="profile__posts-grid" data-popup-trigger="purchase">
+                    <div class="profile__posts-item" (click)="modelDetail = story"
+                      *ngFor="let story of data?.stories;let i = index;">
+                      <img [src]="story?.backgroundImage" alt="Post" *ngIf="story?.backgroundImage">
+                      <img [src]="story?.isGif" alt="Post" *ngIf="!story?.backgroundImage">
+                      <div class="profile__posts-item-copy">
+                        <h6 class="mb-1">{{story?.pliadName}}</h6>
+                        <h5><sup>$</sup>{{story?.plaidAmount | number}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="popup" data-popup-target="purchase">
+    <div class="container popup__container">
+      <div class="row popup__row">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 popup__col">
+          <div class="popup__inner">
+            <div class="purchase">
+              <div class="purchase__header d-sm-none">
+                <button class="purchase__btn" data-popup-trigger="purchase">X</button>
+                <div class="profile">
+                  <div class="profile__img"
+                  [ngStyle]="{'background-image':'url('+modelDetail?.userId?.imageUrl?.original+')'}">&nbsp;
+                  </div>
+                  <div class="profile__copy">
+                    <div class="d-flex align-items-center">
+                      <p class="p--lg"><span class="u-weight-dmb">{{modelDetail?.userId?.name}}</span>
+                      </p>
+                    </div>
+                    <p class="p--sm u-weight-reg u-color-gray-drk">
+                      {{modelDetail?.createdOn | timeAgo }} -
+                      {{modelDetail?.plaidlocation}}</p>
+                  </div>
+                </div>
+                <p class="p--lg">{{modelDetail?.tags}}</p>
+              </div>
+              <div class="purchase__img" [ngStyle]="{'background-image':'url('+modelDetail?.backgroundImage+')'}">&nbsp;
+              </div>
+              <div class="purchase__main">
+                <div class="purchase__header d-none d-sm-none">
+                  <button class="purchase__btn" data-popup-trigger="purchase">X</button>
+                  <div class="profile">
+                    <div class="profile__img"
+                    [ngStyle]="{'background-image':'url('+modelDetail?.userId?.imageUrl?.original+')'}">&nbsp;
+                    </div>
+                    <div class="profile__copy">
+                      <div class="d-flex align-items-center">
+                        <p class="p--lg"><span class="u-weight-dmb">{{modelDetail?.userId?.name}}</span> and</p>
+                        <div class="profile__sub-img"
+                          style="background-image:url('/assets/images/profile-picture-3.png');">
+                          &nbsp;
+                        </div>
+                      </div>
+                      <p class="p--sm u-weight-reg u-color-gray-drk">1 Hour ago - {{modelDetail?.plaidlocation}}</p>
+                    </div>
+                  </div>
+                  <p class="p--lg">{{modelDetail?.pliadName}}</p>
+                </div>
+                <div class="purchase__actions">
+                  <h3>{{modelDetail?.pliadName}}</h3>
+                  <p class="p--lg d-flex align-items-center justify-content-start">${{modelDetail?.plaidAmount}}&nbsp;<img
+                      src="/assets/images/i-check.svg" alt="Check" class="purchase__check"></p>
+                  <div class="purchase__reaction reaction" *ngIf="modelDetail?.emoji">
+                    <input type="radio" name="reaction-2" id="reaction-2-love">
+                    <label for="reaction-2-love"><span>{{modelDetail?.emoji}}</span></label>
+                  </div>
+                </div>
+                <div class="purchase__messages">
+                  <p class="p--lg mb-4 mb-md-3">{{modelDetail?.commentCount}} Comments</p>
+                  <ul>
+                    <li *ngFor="let comment of modelDetail?.comment">
+                      <div class="profile profile--md">
+                        <div class="profile__img"
+                          [ngStyle]="{'background-image':'url('+comment?.userId?.imageUrl?.original+')'}">
+                          &nbsp;
+                        </div>
+                        <div class="profile__copy">
+                          <p class="p--sm u-weight-dmb u-color-black-2 mb-1">{{comment?.userId?.name}}
+                          </p>
+                          <p class="p--alt u-color-black-2">{{comment?.text}}</p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="header__logo-wrapper">
+            <a class="header__logo"><img src="/assets/images/logo.svg" alt="Logo" class="header__logo-img"></a>
+            <span class="header__logo-label">{{data?.userDetails[0]?.userName}}</span>
+          </div>
+        </div>
+        <div class="col-6 text-right">
+          <div class="header__actions">
+            <h2 class="u-weight-med"><span class="u-color-primary"><a target="_blank"
+                  href="https://apps.apple.com/us/app/jasper/id1440001010">Login</a></span> or <span
+                class="u-color-primary"><a target="_blank" href="https://apps.apple.com/us/app/jasper/id1440001010">Sign
+                  Up</a></span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <section class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="main-content">
+              <div class="intro__inner">
+                <div class="intro__copy">
+                  <h1>{{data?.userDetails[0]?.name}}</h1>
+                  <div class="intro__info">
+                    <div class="intro__info-item">{{data?.transactions[0]?.count}} <span>🎁</span></div>
+                    <div class="intro__info-item">${{data?.transactions[0]?.totalAmount}} <span>💰</span></div>
+                  </div>
+                  <br *ngIf="data?.userDetails[0]?.bio">
+                  <p>{{data?.userDetails[0]?.bio}}</p>
+                  <br>
+                  <div class="intro__actions">
+                    <div class="d-flex align-items-center justify-content-start">
+                      <p class="intro__actions-item"><span class="u-weight-bld">{{data?.userDetails[0]?.friends}}</span>
+                        Followers</p>
+                      <p class="intro__actions-item"><span
+                          class="u-weight-bld">{{data?.userDetails[0]?.searchIndex?.length}}</span>
+                        Following</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-start d-md-none">
+                      <a class="intro__actions-icon" (click)="tags = !tags;getData()">
+                        <img src="/assets/images/icon-user.png" alt="Icon" *ngIf="!tags">
+                        <img src="/assets/images/icon-user-selected.jpeg" alt="Icon" *ngIf="tags">
+                      </a>
+                      <a href="https://apps.apple.com/us/app/jasper/id1440001010" target="_blank" class="btn">+ Follow</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="intro__img"
+                  [ngStyle]="{'background-image':'url('+data?.userDetails[0]?.imageUrl?.original+')'}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="purchases">
+      <div class="purchases__notice">
+        <div class="notice d-md-none">
+          <div class="notice__main">
+            <img src="/assets/images/logo-smile.svg" alt="Logo" class="notice__logo">
+            <p>See what <span class="u-weight-dmb">{{data?.userDetails[0]?.name}}</span> and others are buying with
+              Jasper!</p>
+          </div>
+          <a target="_blank" href="https://apps.apple.com/us/app/jasper/id1440001010" class="btn w-100">Use the App</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="main-content">
+  
+              <div class="purchases__content" data-popup-trigger="purchase">
+                <div class="purchase-box purchases__item" (click)="modelDetail = story"
+                  *ngFor="let story of data?.stories;let i = index;"
+                  [ngStyle]="{'background-image':'url('+story?.backgroundImage+')'}">
+                  <div class="purchase-box__copy">
+                    <div class="purchase-box__copy-inner">
+                      <h2>{{story?.pliadName}}</h2>
+                      <p class="p--md">${{story?.plaidAmount}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main> -->

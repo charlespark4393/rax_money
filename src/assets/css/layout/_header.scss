@@ -1,0 +1,63 @@
+.header {
+    padding: 1rem 0;
+    border-bottom: 1px solid $color-gray-alt;
+    background-color: $color-gray;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    width: 100%;
+    @include atSmall {
+        z-index: 1;
+    }
+    @include atMedium {
+        padding: 1.25rem 0;
+    }
+
+    &__logo-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__logo {
+        display: block;
+        width: 4.167rem;
+        @include atMedium {
+            width: 6.5rem;
+        }
+
+        &-img {
+            width: 100%;
+        }
+
+        &-label {
+            position: relative;
+            font-weight: 500;
+            padding-left: .9167rem;
+            margin-left: .4167rem;
+            @extend .h2;
+            @include atMedium {
+                margin-left: .6875rem;
+                padding-left: 1.375rem;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                height: 3.5px;
+                width: 3.5px;
+                background-color: $color-black;
+                border-radius: 50%;
+                @include atMedium {
+                    height: 7px;
+                    width: 7px;
+                }
+            }
+        }
+    }
+}

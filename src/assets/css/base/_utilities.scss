@@ -1,0 +1,37 @@
+// Font weight
+.u-weight {
+    &-reg {
+        font-weight: 400;
+    }
+    &-med {
+        font-weight: 500;
+    }
+
+    &-dmb {
+        font-weight: 600;
+    }
+
+    &-bld {
+        font-weight: 700;
+    }
+}
+
+
+// Color
+.u-color {
+    &-primary {
+        color: $color-primary;
+    }
+
+    &-gray {
+        &-drk {
+            color: $color-gray-drk;
+        }
+    }
+
+    &-black {
+        &-2 {
+            color: $color-black-2;
+        }
+    }
+}

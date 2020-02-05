@@ -1,0 +1,134 @@
+.purchase {
+    @include atSmall {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__header {
+        padding: 1.667rem 20px;
+        position: relative;
+        @include atSmall {
+            order: 2;
+            padding: 0 0 1.25rem 0;
+        }
+    }
+
+    &__btn {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        font-weight: 700;
+        color: $color-primary;
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+        transition: all .25s;
+        position: absolute;
+        top: 1.667rem;
+        right: 20px;
+        font-family: $font-main;
+        @include atSmall {
+            display: none;
+        }
+
+        &:hover {
+            color: darken($color-primary, 15%);
+        }
+    }
+
+    &__img {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 30rem;
+        @include atSmall {
+            height: auto;
+            min-height: 31.25rem;
+            width: 50%;
+            min-width: 50%;
+            order: 1;
+        }
+    }
+
+    &__main {
+        @include atSmall {
+            order: 2;
+            width: 50%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: space-between;
+            background-color: rgba($color-white, .75);
+            backdrop-filter: blur(10px);
+            border-top-right-radius: 1.25rem;
+            border-bottom-right-radius: 1.25rem;
+        }
+    }
+
+    &__messages {
+        border-top: 2px solid $color-gray-alt;
+        padding: 2.5rem 20px 4.167rem 20px;
+        @include atSmall {
+            order: 2;
+            border-top: 2px solid $color-gray-alt;
+            border-bottom: 2px solid $color-gray-alt;
+            flex: 1;
+            padding: 1.25rem 0;
+        }
+
+        ul {
+            li {
+                & + li {
+                    margin-top: 1.667rem;
+                    @include atMedium {
+                        margin-top: 1.25rem;
+                    }
+                }
+            }
+        }
+
+        &-empty {
+            text-align: center;
+            @include atSmall {
+                text-align: left;
+            }
+
+            i {
+                font-size: 4rem;
+                font-style: normal;
+                @include atSmall {
+                    font-size: 3rem;
+                }
+            }
+
+            p {
+                color: rgba($color-black-2, .75);
+            }
+        }
+    }
+
+    &__actions {
+        padding: 2.083rem 1.667rem 1.833rem 1.667rem;
+        @include atSmall {
+            order: 3;
+            padding: 1.25rem 0 0 0;
+        }
+    }
+
+    &__check {
+        height: 1.25rem;
+        @include atSmall {
+            height: .9375rem;
+        }
+    }
+
+    &__reaction {
+        margin: 1.667rem 0 1.25rem 0;
+        @include atSmall {
+            margin: 1rem 0 1.25rem 0;
+        }
+    }
+}

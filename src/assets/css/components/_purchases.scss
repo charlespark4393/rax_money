@@ -1,0 +1,44 @@
+.purchases {
+    position: relative;
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+        @include atMedium {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    &__content {
+        padding: 12px;
+        margin: -6px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include atMedium {
+            padding: 1.875rem 0;
+            margin: -12px;
+        }
+    }
+
+    &__item {
+        margin: 6px;
+        width: calc(50% - 12px);
+        @include atMedium {
+            margin: 12px;
+            width: calc(50% - 24px);
+        }
+    }
+
+    &__notice {
+        position: fixed;
+        z-index: 2;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 24px);
+        height: auto;
+    }
+}

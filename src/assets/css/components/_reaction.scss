@@ -1,0 +1,50 @@
+.reaction {
+    input {
+        display: none;
+
+        &:checked {
+            & + label {
+                background-color: $color-primary;
+                border-color: $color-primary;
+            }
+        }
+    }
+
+    label {
+        width: 4.25rem;
+        height: 2.667rem;
+        border: 1px solid $color-gray-alt-2;
+        border-radius: .667rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 0;
+        line-height: 1;
+        position: relative;
+        cursor: pointer;
+        margin-right: 1.25rem;
+        transition: all .25s;
+        backface-visibility: hidden;
+        @include atMedium {
+            width: 3.1875rem;
+            height: 2rem;
+            border-radius: .5rem;
+            margin-right: .9375rem;
+        }
+
+        span {
+            font-size: 2rem;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -75%);
+            text-shadow: 0 2px 4px rgba(178,178,178,0.50);
+            @include atMedium {
+                font-size: 1.5rem;
+                left: 55%;
+                transform: translate(-55%, -75%);
+            }
+        }
+    }
+}

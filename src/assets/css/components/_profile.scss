@@ -1,0 +1,47 @@
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+    @include atSmall {
+        margin-bottom: .75rem;
+    }
+
+    &__img {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 3.333rem;
+        width: 3.333rem;
+        margin-right: 7px;
+        border-radius: 50%;
+        @include atSmall {
+            height: 2.5rem;
+            width: 2.5rem;
+            min-height: 2.5rem;
+            min-width: 2.5rem;
+            margin-right: 10px;
+        }
+    }
+
+    &__sub-img {
+        height: 1.667rem;
+        width: 1.667rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin-left: 5px;
+        border-radius: 50%;
+        @include atSmall {
+            height: 1.25rem;
+            width: 1.25rem;
+        }
+    }
+
+    &__copy {
+        .p--xs {
+            font-weight: 400;
+            color: rgba($color-black-2, .5);
+        }
+    }
+}

@@ -1,0 +1,114 @@
+.intro {
+    padding: 1rem 0 1.5rem 0;
+    border-bottom: 1px solid $color-gray-alt;
+    background-color: $color-gray;
+    @include atMedium {
+        padding: 2.0625rem 0;
+    }
+
+    &__inner {
+        position: relative;
+        @include atMedium {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+    }
+
+    &__img {
+        height: 6.167rem;
+        width: 6.167rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        pointer-events: none;
+        user-select: none;
+        @include atMedium {
+            position: static;
+            height: 11.75rem;
+            width: 11.75rem;
+            min-height: 11.75rem;
+            min-width: 11.75rem;
+        }
+    }
+
+    &__copy {
+        @include atMedium {
+            margin-right: 1.875rem;
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 5px 0 1.25rem 0;
+        @include atMedium {
+            margin: 9px 0 .875rem 0;
+        }
+
+        &-item {
+            padding: 5px 5px 5px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            color: $color-primary;
+            background-color: $color-primary-lgt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @extend .h2;
+
+            span {
+                text-shadow: 0 4px 8px rgba(50,50,50, .2);
+                margin-left: 5px;
+            }
+
+            & + & {
+                margin-left: 1rem;
+                @include atMedium {
+                    margin-left: .75rem;
+                }
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        @include atMedium {
+            margin-top: 1.5rem;
+        }
+
+        &-item {
+            color: $color-primary;
+            @extend .h2;
+
+            & + & {
+                margin-left: 1.25rem;
+                @include atMedium {
+                    margin-left: 1.875rem;
+                }
+            }
+        }
+
+        &-icon {
+            height: 1.667rem;
+            margin-right: 1.25rem;
+            @include atMedium {
+                height: 1.25rem;
+                margin-right: 1.875rem;
+            }
+
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+    }
+}

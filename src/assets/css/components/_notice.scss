@@ -1,0 +1,38 @@
+.notice {
+    padding: 1.5rem;
+    background-color: rgba($color-gray, .75);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    @include atSmall {
+        width: 520px;
+        margin: 0 auto;
+    }
+    @include atMedium {
+        padding: 1.125rem;
+        border-radius: 1.125rem;
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        @include atMedium {
+            margin-bottom: .75rem;
+        }
+
+        p {
+            flex: 1;
+        }
+    }
+
+    &__logo {
+        margin-right: 1rem;
+        box-shadow: 0 0 13px 4px rgba(212,212,212,0.50);
+        border-radius: .833rem;
+        @include atMedium {
+            margin-right: .75rem;
+            border-radius: .625rem;
+        }
+    }
+}
